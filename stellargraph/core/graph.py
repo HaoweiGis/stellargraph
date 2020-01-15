@@ -611,7 +611,10 @@ class StellarGraph:
              An instance of `networkx.MultiDiGraph` (if directed) or `networkx.MultiGraph` (if
              undirected) containing all the nodes & edges and their types & features in this graph.
         """
-        return self._graph.to_networkx()
+        if self._graph is not None:
+            return self._graph.to_networkx()
+
+        raise NotImplementedError("FIXME")
 
     # FIXME: Experimental/special-case methods that need to be considered more
     def get_index_for_nodes(self, nodes, node_type=None):
