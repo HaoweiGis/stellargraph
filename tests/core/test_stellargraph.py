@@ -44,7 +44,9 @@ def example_benchmark_graph(
     feature_size=None, n_nodes=100, n_edges=200, n_types=4, features_in_nodes=True
 ):
     node_ids = np.arange(n_nodes)
-    edges = pd.DataFrame(np.random.randint(0, n_nodes, size=(n_edges, 2)), columns=["source", "target"])
+    edges = pd.DataFrame(
+        np.random.randint(0, n_nodes, size=(n_edges, 2)), columns=["source", "target"]
+    )
 
     if feature_size is None:
         features = []
