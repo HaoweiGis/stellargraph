@@ -474,9 +474,9 @@ class StellarGraph:
         An error will be raised if the graph is not correctly setup.
         """
         if self._graph is not None:
-            self._graph.check_graph_for_ml(features)
+            return self._graph.check_graph_for_ml(features)
 
-        if all(size == 0 for _, size in self.node_feature_sizes()):
+        if all(size == 0 for _, size in self.node_feature_sizes().items()):
             raise RuntimeError(
                 "This StellarGraph has no numeric feature attributes for nodes"
                 "Node features are required for machine learning"
